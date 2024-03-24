@@ -1,0 +1,51 @@
+type (
+	LoginRequest {
+		Mobile   string `json:"mobile"`
+		Password string `json:"password"`
+	}
+	LoginResponse {
+		AccessToken  string `json:"accessToken""`
+		AccessExpire int64  `json:"accessExpire"`
+	}
+
+	RegisterRequest {
+		Name     string `json:"name"`
+		Gender   int64  `json:"gender"`
+		Mobile   string `json:"mobile"`
+		Password string `json:"password"`
+	}
+
+	RegisterResponse {
+		Id     int64  `json:"id"`
+		Name   string `json:"name"`
+		Gender int64  `json:"gender"`
+		Mobile string `json:"mobile"`
+	}
+
+	UserInfoResponse {
+		Id     int64  `json:"id"`
+		Name   string `json:"name"`
+		Gender int64  `json:"gender"`
+		Mobile string `json:"mobile"`
+	}
+)
+
+@server (
+	prefix : /api/user
+)
+service User {
+	@handler Login
+	post /login(LoginRequest) returns (LoginResponse)
+
+	@handler Register
+	post /register(RegisterRequest) returns (RegisterResponse)
+}
+
+@server (
+	prefix : /api/user
+	jwt: Auth
+)
+service User {
+	@handler UserInfo
+	post /userinfo() returns (UserInfoResponse)
+}
