@@ -1,0 +1,13 @@
+Name: product.rpc
+ListenOn: 0.0.0.0:9001
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: product.rpc
+
+Mysql:
+  DataSource: root:123456@tcp(localhost:3306)/go-zero-shop?charset=utf8mb4&parseTime=true
+CacheRedis:
+  - Host: redis:6380
+    Type: node
+    Pass:
