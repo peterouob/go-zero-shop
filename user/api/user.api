@@ -49,3 +49,5 @@ service User {
 	@handler UserInfo
 	post /userinfo() returns (UserInfoResponse)
 }
+
+//// goctl api go -api product.api -dir .
