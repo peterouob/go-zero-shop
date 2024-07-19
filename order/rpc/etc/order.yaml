@@ -11,3 +11,15 @@ CacheRedis:
   - Host: redis:6380
     Type: node
     Pass:
+
+UserRpc:
+  Etcd:
+    Hosts:
+      - etcd:2379
+    Key: user.rpc
+
+ProductRpc:
+  Etcd:
+    Hosts:
+      - etcd:2379
+    Key: product.rpc

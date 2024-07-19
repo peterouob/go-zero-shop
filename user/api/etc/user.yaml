@@ -1,6 +1,6 @@
 Name: User
 Host: 0.0.0.0
-Port: 8000
+Port: 2005
 Mysql:
   DataSource: root:123456@tcp(localhost:3306)/go-zero-shop?charset=utf8mb4&parseTime=true
 CacheRedis:
